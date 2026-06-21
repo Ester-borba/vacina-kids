@@ -1,6 +1,19 @@
 :root {
+  /* Suas cores originais */
   --ion-color-primary: #ABC270;
   --ion-color-secondary: #FEC868;
   --ion-color-tertiary: #FDA769;
   --ion-color-dark: #473C33;
+
+  /* Forçando o fundo claro e garantindo legibilidade */
+  --ion-background-color: #F8F9FA; /* Um cinza beeeeem clarinho, quase branco */
+  --ion-text-color: var(--ion-color-dark);
+  --ion-card-background: #ffffff;
+}
+
+/* O Ionic aplica um tema escuro automaticamente baseado no sistema.
+   Vamos neutralizar isso forçando as variáveis claras no body: */
+body {
+  --ion-background-color: #F8F9FA;
+  --ion-text-color: var(--ion-color-dark);
 }

@@ -1,0 +1,38 @@
+/* Títulos das seções */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px; /* Deixa a fonte mais moderna */
+  margin-top: 24px;
+  margin-bottom: 16px;
+  padding-left: 5px;
+}
+
+/* Os rostinhos das crianças */
+.child-avatar {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  opacity: 0.6; /* Deixa os não selecionados um pouco opacos */
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+/* Quando a criança for selecionada, ela ganha a cor verde (Primary) e o destaque */
+.child-avatar.selected {
+  opacity: 1;
+  filter: grayscale(0%);
+  border: 3px solid var(--ion-color-primary);
+  transform: scale(1.1); /* Dá um leve zoom */
+  box-shadow: 0 4px 12px rgba(171, 194, 112, 0.4);
+}
+
+/* Deixando o card da campanha mais amigável */
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.04);
+  margin-left: 0;
+  margin-right: 0;
+  border: none;
+}
