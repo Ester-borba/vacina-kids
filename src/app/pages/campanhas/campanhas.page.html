@@ -1,0 +1,86 @@
+<ion-content>
+  <div class="shell">
+
+    <!-- Sidebar (igual ao dashboard) -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#fff"/>
+            <path d="M12 8v6M9 11h6" stroke="#9CB85F" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="logo-nome">Imuni</div>
+          <div class="logo-sub">Saúde infantil</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a class="nav-item" (click)="voltar()">
+          <ion-icon name="grid-outline"></ion-icon>
+          <span>Painel</span>
+        </a>
+        <a class="nav-item">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>Crianças</span>
+        </a>
+        <a class="nav-item active">
+          <ion-icon name="megaphone-outline"></ion-icon>
+          <span>Campanhas</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <div>
+            <div class="user-nome">Ana</div>
+            <div class="user-role">Responsável</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1>Campanhas de vacinação</h1>
+          <p class="page-sub">Mobilizações ativas na sua região.</p>
+        </div>
+      </div>
+
+      <div class="campanhas-grid">
+        <div class="campanha-card" *ngFor="let c of campanhas">
+
+          <div class="camp-topo">
+            <div class="camp-icone">
+              <ion-icon [name]="c.icone"></ion-icon>
+            </div>
+            <span class="camp-badge" [ngClass]="c.tipo">{{ c.tipoLabel }}</span>
+          </div>
+
+          <h3>{{ c.nome }}</h3>
+          <p class="camp-descricao">{{ c.descricao }}</p>
+
+          <div class="camp-info-grid">
+            <div>
+              <span class="info-label">PÚBLICO</span>
+              <span class="info-valor">{{ c.publico }}</span>
+            </div>
+            <div>
+              <span class="info-label">PERÍODO</span>
+              <span class="info-valor">{{ c.periodo }}</span>
+            </div>
+          </div>
+
+          <div class="camp-relevante">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            Relevante para {{ c.relevante }}
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+</ion-content>

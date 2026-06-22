@@ -1,0 +1,203 @@
+ion-content {
+  --background: #FCFAF4;
+}
+
+.login-wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 100vh;
+}
+
+.login-art {
+  background: linear-gradient(150deg, #ABC270 0%, #9CB85F 48%, #FEC868 140%);
+  padding: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    max-width: 400px;
+  }
+
+  p {
+    font-size: 15px;
+    opacity: 0.92;
+    max-width: 380px;
+    line-height: 1.5;
+  }
+}
+
+.art-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.art-logo-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.small {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #f0f7e6;
+  }
+}
+
+.art-logo-nome {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.art-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.art-badge {
+  background: rgba(255,255,255,0.18);
+  border-radius: 30px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.login-form-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 28px;
+}
+
+.login-form-box {
+  width: 100%;
+  max-width: 380px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #473C33;
+    margin: 0 0 6px;
+  }
+}
+
+.form-logo-mobile {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.form-sub {
+  color: #888;
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+.field-group {
+  margin-bottom: 16px;
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #473C33;
+    margin-bottom: 6px;
+  }
+}
+
+.custom-input {
+  --background: #fff;
+  --border-radius: 10px;
+  --border-color: #ddd;
+  --border-width: 1px;
+  --border-style: solid;
+  --padding-start: 14px;
+  --padding-end: 14px;
+  font-size: 14px;
+}
+
+.input-senha-wrap {
+  position: relative;
+
+  ion-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #aaa;
+    cursor: pointer;
+    z-index: 10;
+  }
+}
+
+.esqueci {
+  text-align: right;
+  font-size: 13px;
+  color: #ABC270;
+  font-weight: 600;
+  cursor: pointer;
+  margin: -8px 0 20px;
+}
+
+.btn-entrar {
+  --background: #ABC270;
+  --color: #fff;
+  --border-radius: 10px;
+  font-weight: 700;
+  height: 48px;
+  margin-bottom: 16px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #bbb;
+  font-size: 13px;
+  margin-bottom: 16px;
+
+  &::before, &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+}
+
+.btn-cadastro {
+  --color: #ABC270;
+  --border-color: #ABC270;
+  --border-radius: 10px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .login-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .login-art {
+    display: none;
+  }
+
+  .form-logo-mobile {
+    display: flex;
+  }
+}

@@ -1,0 +1,90 @@
+<ion-content>
+  <div class="login-wrap">
+
+    <!-- Painel esquerdo verde -->
+    <div class="login-art">
+      <div class="art-logo">
+        <div class="art-logo-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#fff"/>
+            <path d="M12 8v6M9 11h6" stroke="#9CB85F" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="art-logo-nome">Imuni</span>
+      </div>
+      <div class="art-texto">
+        <h1>A carteirinha de vacinação da sua família, sempre com você.</h1>
+        <p>Acompanhe quais vacinas já foram aplicadas, o que está atrasado e as campanhas ativas.</p>
+        <div class="art-badges">
+          <span class="art-badge">Múltiplos filhos</span>
+          <span class="art-badge">Alertas de pendência</span>
+          <span class="art-badge">Campanhas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel direito - formulário -->
+    <div class="login-form-wrap">
+      <div class="login-form-box">
+
+        <div class="form-logo-mobile">
+          <div class="art-logo-icon small">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#ABC270"/>
+            </svg>
+          </div>
+          <span style="font-weight:700; color:#473C33;">Imuni</span>
+        </div>
+
+        <h2>Entrar na conta</h2>
+        <p class="form-sub">Responsável pela carteirinha</p>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="field-group">
+            <label>E-mail</label>
+            <ion-input
+              formControlName="email"
+              type="email"
+              placeholder="seu@email.com"
+              class="custom-input">
+            </ion-input>
+          </div>
+
+          <div class="field-group">
+            <label>Senha</label>
+            <div class="input-senha-wrap">
+              <ion-input
+                formControlName="senha"
+                [type]="mostrarSenha ? 'text' : 'password'"
+                placeholder="••••••••"
+                class="custom-input">
+              </ion-input>
+              <ion-icon
+                [name]="mostrarSenha ? 'eye-off-outline' : 'eye-outline'"
+                (click)="toggleSenha()">
+              </ion-icon>
+            </div>
+          </div>
+
+          <p class="esqueci" (click)="esqueceuSenha()">Esqueci minha senha</p>
+
+          <ion-button expand="block" type="submit"
+            class="btn-entrar"
+            [disabled]="loginForm.invalid || loading">
+            <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+            <span *ngIf="!loading">Entrar</span>
+          </ion-button>
+        </form>
+
+        <div class="divider"><span>ou</span></div>
+
+        <ion-button expand="block" fill="outline" class="btn-cadastro"
+          (click)="irParaCadastro()">
+          Criar conta gratuita
+        </ion-button>
+
+      </div>
+    </div>
+
+  </div>
+</ion-content>

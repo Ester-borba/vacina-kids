@@ -1,0 +1,73 @@
+<ion-content>
+  <div class="shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#fff"/>
+            <path d="M12 8v6M9 11h6" stroke="#9CB85F" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="logo-nome">Imuni</div>
+          <div class="logo-sub">Saúde infantil</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a class="nav-item" (click)="irParaDashboard()">
+          <ion-icon name="grid-outline"></ion-icon>
+          <span>Painel</span>
+        </a>
+        <a class="nav-item active">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>Crianças</span>
+        </a>
+        <a class="nav-item" (click)="irParaCampanhas()">
+          <ion-icon name="megaphone-outline"></ion-icon>
+          <span>Campanhas</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <div>
+            <div class="user-nome">Ana</div>
+            <div class="user-role">Responsável</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="main-content">
+
+      <a class="voltar-link" (click)="voltar()">
+        ← Carteira de Helena
+      </a>
+
+      <h1>Histórico vacinal — Helena</h1>
+      <p class="page-sub">Linha do tempo completa de doses previstas e aplicadas.</p>
+
+      <div class="timeline">
+        <div class="timeline-item" *ngFor="let v of vacinas">
+
+          <div class="timeline-dot" [ngClass]="v.status"></div>
+          <div class="timeline-linha"></div>
+
+          <div class="timeline-card">
+            <div class="card-esquerda">
+              <span class="vacina-nome">{{ v.nome }}</span>
+              <span class="vacina-detalhe">{{ v.dose }} · {{ v.data }}</span>
+              <span class="vacina-doenca">{{ v.doenca }}</span>
+            </div>
+            <span class="status-tag" [ngClass]="v.status">{{ v.statusLabel }}</span>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+</ion-content>

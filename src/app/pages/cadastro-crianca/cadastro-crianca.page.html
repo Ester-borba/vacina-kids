@@ -1,0 +1,167 @@
+<ion-content>
+  <div class="shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#fff"/>
+            <path d="M12 8v6M9 11h6" stroke="#9CB85F" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="logo-nome">Imuni</div>
+          <div class="logo-sub">Saúde infantil</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a class="nav-item" (click)="voltar()">
+          <ion-icon name="grid-outline"></ion-icon>
+          <span>Painel</span>
+        </a>
+        <a class="nav-item active">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>Crianças</span>
+        </a>
+        <a class="nav-item" (click)="irParaCampanhas()">
+          <ion-icon name="megaphone-outline"></ion-icon>
+          <span>Campanhas</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <div>
+            <div class="user-nome">Ana</div>
+            <div class="user-role">Responsável</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="main-content">
+
+      <a class="voltar-link" (click)="voltar()">← Voltar para crianças</a>
+
+      <h1>Cadastrar criança</h1>
+      <p class="page-sub">Os dados ficam vinculados à conta do responsável.</p>
+
+      <div class="form-card">
+        <p class="form-section-title">DADOS DA CRIANÇA</p>
+
+        <form [formGroup]="form" (ngSubmit)="salvar()">
+
+          <!-- Nome completo -->
+          <div class="field-group full">
+            <label>Nome completo <span class="obrigatorio">*</span></label>
+            <ion-input
+              formControlName="nome"
+              placeholder="Ex. Maria Clara Souza"
+              class="custom-input">
+            </ion-input>
+            <p class="erro" *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">
+              Campo obrigatório
+            </p>
+          </div>
+
+          <!-- Data nascimento + Sexo -->
+          <div class="form-row">
+            <div class="field-group">
+              <label>Data de nascimento <span class="obrigatorio">*</span></label>
+              <ion-input
+                formControlName="nascimento"
+                type="date"
+                class="custom-input">
+              </ion-input>
+            </div>
+            <div class="field-group">
+              <label>Sexo</label>
+              <select formControlName="sexo" class="custom-select">
+                <option value="">Selecione</option>
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- CPF + RG -->
+          <div class="form-row">
+            <div class="field-group">
+              <label>CPF</label>
+              <ion-input
+                formControlName="cpf"
+                placeholder="000.000.000-00"
+                class="custom-input">
+              </ion-input>
+            </div>
+            <div class="field-group">
+              <label>RG / Certidão</label>
+              <ion-input
+                formControlName="rg"
+                placeholder="00.000.000-0"
+                class="custom-input">
+              </ion-input>
+            </div>
+          </div>
+
+          <!-- Altura + Parentesco -->
+          <div class="form-row">
+            <div class="field-group">
+              <label>Altura (cm)</label>
+              <ion-input
+                formControlName="altura"
+                type="number"
+                placeholder="Ex. 72"
+                class="custom-input">
+              </ion-input>
+            </div>
+            <div class="field-group">
+              <label>Parentesco</label>
+              <select formControlName="parentesco" class="custom-select">
+                <option value="mae">Mãe</option>
+                <option value="pai">Pai</option>
+                <option value="responsavel">Responsável legal</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- LGPD -->
+          <div class="lgpd-row">
+            <input type="checkbox" formControlName="lgpd" id="lgpd"/>
+            <label for="lgpd">
+              Autorizo o tratamento dos dados de saúde da criança conforme a
+              <span class="link-politica">política de privacidade (LGPD)</span>
+            </label>
+          </div>
+          <p class="erro" *ngIf="form.get('lgpd')?.invalid && form.get('lgpd')?.touched">
+            Você precisa aceitar para continuar
+          </p>
+
+          <!-- Botões -->
+          <div class="btn-row">
+            <ion-button
+              expand="block"
+              type="submit"
+              class="btn-salvar"
+              [disabled]="form.invalid || loading">
+              <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+              <span *ngIf="!loading">Cadastrar criança</span>
+            </ion-button>
+            <ion-button
+              expand="block"
+              fill="outline"
+              class="btn-cancelar"
+              (click)="voltar()">
+              Cancelar
+            </ion-button>
+          </div>
+
+        </form>
+      </div>
+
+    </main>
+  </div>
+</ion-content>

@@ -1,0 +1,160 @@
+<ion-content>
+  <div class="shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#fff"/>
+            <path d="M12 8v6M9 11h6" stroke="#9CB85F" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="logo-nome">Imuni</div>
+          <div class="logo-sub">Saúde infantil</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active">
+          <ion-icon name="grid-outline"></ion-icon>
+          <span>Painel</span>
+        </a>
+        <a class="nav-item" (click)="irParaCriancas()">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>Crianças</span>
+        </a>
+        <a class="nav-item" (click)="irParaCampanhas()">
+          <ion-icon name="megaphone-outline"></ion-icon>
+          <span>Campanhas</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">{{ nomeInicial }}</div>
+          <div>
+            <div class="user-nome">{{ nomeUsuario }}</div>
+            <div class="user-role">Responsável</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+
+      <!-- Cabeçalho -->
+      <div class="page-header">
+        <div>
+          <p class="header-greeting">Bom dia, {{ nomeUsuario }} 👋</p>
+          <h1>Painel da família</h1>
+        </div>
+        <button class="btn-cadastrar" (click)="irParaCadastro()">
+          <ion-icon name="add-outline"></ion-icon>
+          Cadastrar criança
+        </button>
+      </div>
+
+      <!-- Cards de estatísticas -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">{{ totalCriancas }}</div>
+          <div class="stat-label">Crianças</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{{ totalDoses }}</div>
+          <div class="stat-label">Doses aplicadas</div>
+        </div>
+        <div class="stat-card destaque-alerta">
+          <div class="stat-number">{{ totalAtrasadas }}</div>
+          <div class="stat-label">Vacinas atrasadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{{ totalCampanhas }}</div>
+          <div class="stat-label">Campanhas ativas</div>
+        </div>
+      </div>
+
+      <!-- Alerta de pendência -->
+      <div class="alerta-banner" *ngIf="temAtrasadas">
+        <ion-icon name="warning-outline"></ion-icon>
+        <div>
+          <strong>Há vacinas atrasadas!</strong>
+          <span>Confira a carteirinha das crianças com pendência.</span>
+        </div>
+        <button class="btn-ver" (click)="verPendencias()">Ver pendências</button>
+      </div>
+
+      <!-- Minhas crianças -->
+      <div class="section-header">
+        <h2>Minhas crianças</h2>
+        <a class="ver-todas">Ver todas →</a>
+      </div>
+
+      <div class="criancas-grid">
+        <div class="crianca-card"
+             *ngFor="let c of criancas"
+             (click)="irParaPerfil(c.id)">
+          <div class="crianca-topo">
+            <div class="crianca-avatar" [style.background]="c.cor">
+              {{ c.nome[0] }}
+            </div>
+            <div>
+              <div class="crianca-nome">{{ c.nome }}</div>
+              <div class="crianca-idade">{{ c.idade }}</div>
+              <span class="status-badge" [ngClass]="c.status">
+                {{ c.statusLabel }}
+              </span>
+            </div>
+          </div>
+          <div class="crianca-stats">
+            <div class="cs-item">
+              <span class="cs-num">{{ c.aplicadas }}</span>
+              <span class="cs-label">aplicadas</span>
+            </div>
+            <div class="cs-item">
+              <span class="cs-num">{{ c.previstas }}</span>
+              <span class="cs-label">previstas</span>
+            </div>
+            <div class="cs-item alerta">
+              <span class="cs-num">{{ c.atrasadas }}</span>
+              <span class="cs-label">atrasadas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campanhas ativas -->
+      <div class="section-header" style="margin-top: 32px;">
+        <h2>Campanhas ativas</h2>
+        <a class="ver-todas" (click)="irParaCampanhas()">Ver todas →</a>
+      </div>
+
+      <div class="campanhas-grid">
+        <div class="campanha-card" *ngFor="let camp of campanhas">
+          <div class="camp-topo">
+            <span class="camp-badge" [ngClass]="camp.tipo">{{ camp.tipoLabel }}</span>
+          </div>
+          <h3>{{ camp.nome }}</h3>
+          <div class="camp-info">
+            <div>
+              <span class="camp-label">PÚBLICO</span>
+              <span class="camp-valor">{{ camp.publico }}</span>
+            </div>
+            <div>
+              <span class="camp-label">PERÍODO</span>
+              <span class="camp-valor">{{ camp.periodo }}</span>
+            </div>
+          </div>
+          <div class="camp-relevante">
+            <ion-icon name="checkmark-outline"></ion-icon>
+            Relevante para {{ camp.relevante }}
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</ion-content>

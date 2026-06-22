@@ -1,0 +1,314 @@
+ion-content { --background: #FCFAF4; }
+
+.shell {
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #473C33;
+  color: #FCFAF4;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  gap: 6px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-nome { font-size: 18px; font-weight: 700; }
+.logo-sub  { font-size: 11px; opacity: 0.5; }
+
+.sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: rgba(255,255,255,0.65);
+  transition: all .2s;
+
+  ion-icon { font-size: 18px; }
+
+  &.active, &:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+}
+
+.sidebar-footer { margin-top: auto; }
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ABC270;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.user-nome  { font-size: 13px; font-weight: 600; }
+.user-role  { font-size: 11px; opacity: 0.5; }
+
+.main-content {
+  padding: 40px;
+  max-width: 1100px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+
+  h1 { font-size: 28px; font-weight: 700; color: #473C33; margin: 4px 0 0; }
+}
+
+.header-greeting { font-size: 14px; color: #888; margin: 0; }
+
+.btn-cadastrar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ABC270;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  ion-icon { font-size: 18px; }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+
+  &.destaque-alerta .stat-number { color: #FDA769; }
+}
+
+.stat-number { font-size: 28px; font-weight: 700; color: #473C33; }
+.stat-label  { font-size: 13px; color: #888; margin-top: 4px; }
+
+.alerta-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFF3EA;
+  border: 1px solid #FDA769;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  color: #473C33;
+
+  ion-icon { font-size: 22px; color: #FDA769; flex-shrink: 0; }
+
+  strong { display: block; font-size: 14px; }
+  span   { font-size: 13px; color: #888; }
+}
+
+.btn-ver {
+  margin-left: auto;
+  background: #FDA769;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  h2 { font-size: 18px; font-weight: 700; color: #473C33; margin: 0; }
+}
+
+.ver-todas { font-size: 13px; color: #ABC270; font-weight: 600; cursor: pointer; }
+
+.criancas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.crianca-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+  cursor: pointer;
+  transition: box-shadow .2s;
+
+  &:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+}
+
+.crianca-topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.crianca-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.crianca-nome  { font-size: 15px; font-weight: 700; color: #473C33; }
+.crianca-idade { font-size: 12px; color: #888; }
+
+.status-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-top: 4px;
+
+  &.em-dia   { background: #e8f4d9; color: #3B6D11; }
+  &.pendente { background: #fff0e0; color: #c06000; }
+  &.proxima  { background: #fff8e0; color: #a07000; }
+}
+
+.crianca-stats {
+  display: flex;
+  gap: 8px;
+}
+
+.cs-item {
+  flex: 1;
+  background: #f8f7f4;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+
+  &.alerta .cs-num { color: #FDA769; }
+}
+
+.cs-num   { display: block; font-size: 16px; font-weight: 700; color: #473C33; }
+.cs-label { display: block; font-size: 10px; color: #888; margin-top: 2px; }
+
+.campanhas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.campanha-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px;
+
+  h3 { font-size: 15px; font-weight: 700; color: #473C33; margin: 10px 0 12px; }
+}
+
+.camp-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+
+  &.ativa  { background: #e8f4d9; color: #3B6D11; }
+  &.breve  { background: #fff0e0; color: #c06000; }
+}
+
+.camp-info {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.camp-label { display: block; font-size: 10px; color: #aaa; font-weight: 700; letter-spacing: .5px; }
+.camp-valor { display: block; font-size: 13px; font-weight: 600; color: #473C33; }
+
+.camp-relevante {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #3B6D11;
+  background: #f0f7e6;
+  border-radius: 8px;
+  padding: 6px 10px;
+
+  ion-icon { font-size: 14px; }
+}
+
+@media (max-width: 768px) {
+  .shell { grid-template-columns: 1fr; }
+  .sidebar {
+    flex-direction: row;
+    height: auto;
+    position: relative;
+    padding: 10px 14px;
+    overflow-x: auto;
+  }
+  .sidebar-nav { flex-direction: row; }
+  .sidebar-footer { display: none; }
+  .sidebar-logo .logo-sub { display: none; }
+  .main-content { padding: 20px 16px; }
+}
