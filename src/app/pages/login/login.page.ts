@@ -50,15 +50,19 @@ export class LoginPage implements OnInit {
     if (this.loginForm.invalid) return;
     this.loading = true;
 
-    // Simulação — depois conecta com Firebase Auth
+    const { email, senha } = this.loginForm.value;
+
     setTimeout(() => {
       this.loading = false;
-      this.router.navigate(['/dashboard']);
-    }, 1500);
+      if (email === 'demo@vacina.com' && senha === '123456') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        alert('Acesso demo:\nEmail: demo@vacina.com\nSenha: 123456');
+      }
+    }, 1000);
   }
 
   irParaCadastro() {
-    // this.router.navigate(['/cadastro']);
     console.log('ir para cadastro');
   }
 

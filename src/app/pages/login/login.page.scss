@@ -165,13 +165,26 @@ ion-content {
   margin-bottom: 16px;
 }
 
+.demo-hint {
+  margin-top: 16px;
+  background: #f0f7e6;
+  border: 1px solid #ABC270;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #473C33;
+
+  p { margin: 3px 0; }
+  strong { color: #3B6D11; }
+}
+
 .divider {
   display: flex;
   align-items: center;
   gap: 12px;
   color: #bbb;
   font-size: 13px;
-  margin-bottom: 16px;
+  margin: 20px 0 16px;
 
   &::before, &::after {
     content: '';
