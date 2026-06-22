@@ -45,7 +45,6 @@
     <!-- Conteúdo principal -->
     <main class="main-content">
 
-      <!-- Cabeçalho -->
       <div class="page-header">
         <div>
           <p class="header-greeting">Bom dia, {{ nomeUsuario }} 👋</p>
@@ -57,7 +56,6 @@
         </button>
       </div>
 
-      <!-- Cards de estatísticas -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-number">{{ totalCriancas }}</div>
@@ -77,7 +75,6 @@
         </div>
       </div>
 
-      <!-- Alerta de pendência -->
       <div class="alerta-banner" *ngIf="temAtrasadas">
         <ion-icon name="warning-outline"></ion-icon>
         <div>
@@ -87,7 +84,6 @@
         <button class="btn-ver" (click)="verPendencias()">Ver pendências</button>
       </div>
 
-      <!-- Minhas crianças -->
       <div class="section-header">
         <h2>Minhas crianças</h2>
         <a class="ver-todas">Ver todas →</a>
@@ -126,7 +122,6 @@
         </div>
       </div>
 
-      <!-- Campanhas ativas -->
       <div class="section-header" style="margin-top: 32px;">
         <h2>Campanhas ativas</h2>
         <a class="ver-todas" (click)="irParaCampanhas()">Ver todas →</a>

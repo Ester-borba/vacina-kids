@@ -65,6 +65,10 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {}
 
+  navegar(rota: string) {
+    this.router.navigate([rota]);
+  }
+
   irParaPerfil(id: number) {
     this.router.navigate(['/crianca-perfil', id]);
   }
@@ -73,15 +77,15 @@ export class DashboardPage implements OnInit {
     this.router.navigate(['/campanhas']);
   }
 
- irParaCadastro() {
-  this.router.navigate(['/cadastro-crianca']);
-}
+  irParaCadastro() {
+    this.router.navigate(['/cadastro-crianca']);
+  }
 
   irParaCriancas() {
-    console.log('crianças');
+    this.router.navigate(['/crianca-perfil', 1]);
   }
 
   verPendencias() {
-    console.log('ver pendências');
+    this.router.navigate(['/crianca-perfil', 2]);
   }
 }

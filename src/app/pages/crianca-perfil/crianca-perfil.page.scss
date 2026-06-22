@@ -6,7 +6,6 @@ ion-content { --background: #FCFAF4; }
   min-height: 100vh;
 }
 
-// Sidebar
 .sidebar {
   background: #473C33; color: #FCFAF4;
   display: flex; flex-direction: column;
@@ -44,7 +43,6 @@ ion-content { --background: #FCFAF4; }
 .user-nome { font-size: 13px; font-weight: 600; }
 .user-role { font-size: 11px; opacity: 0.5; }
 
-// Conteúdo
 .main-content { padding: 40px; }
 
 .voltar-link {
@@ -61,7 +59,6 @@ ion-content { --background: #FCFAF4; }
   align-items: start;
 }
 
-// Card lateral
 .perfil-card {
   background: #fff;
   border: 1px solid #eee;
@@ -74,18 +71,14 @@ ion-content { --background: #FCFAF4; }
 
 .progresso-wrap {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 120px; height: 120px;
   margin: 0 auto 16px;
 }
 
 .progresso-texto {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
 }
 
 .pct       { font-size: 22px; font-weight: 700; color: #473C33; }
@@ -105,8 +98,7 @@ ion-content { --background: #FCFAF4; }
 }
 
 .mini-stats {
-  display: flex; gap: 8px;
-  margin-bottom: 20px;
+  display: flex; gap: 8px; margin-bottom: 20px;
 }
 .ms-item {
   flex: 1; background: #f8f7f4;
@@ -136,7 +128,6 @@ ion-content { --background: #FCFAF4; }
   ion-icon { font-size: 18px; }
 }
 
-// Lista de vacinas
 .vacinas-wrap { display: flex; flex-direction: column; gap: 24px; }
 
 .vacina-secao h3 {
@@ -164,21 +155,110 @@ ion-content { --background: #FCFAF4; }
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   ion-icon { font-size: 18px; color: #FEC868; }
-
   &.verde {
     background: #e8f4d9;
     ion-icon { color: #ABC270; }
   }
 }
 
-.vacina-info {
-  flex: 1;
-  display: flex; flex-direction: column; gap: 2px;
-}
-.vacina-nome   { font-size: 14px; font-weight: 600; color: #473C33; }
-.vacina-detalhe{ font-size: 12px; color: #888; }
-.vacina-seta   { font-size: 16px; color: #ccc; }
+.vacina-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.vacina-nome    { font-size: 14px; font-weight: 600; color: #473C33; }
+.vacina-detalhe { font-size: 12px; color: #888; }
+.vacina-seta    { font-size: 16px; color: #ccc; }
 
+// ============ MODAL CARTEIRINHA ============
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: #f0ede8;
+  border: none; border-radius: 50%;
+  width: 28px; height: 28px;
+  font-size: 14px; cursor: pointer;
+  color: #473C33;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.carteirinha-header {
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+}
+
+.cart-logo {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: #f0f7e6;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.cart-titulo { font-size: 14px; font-weight: 700; color: #473C33; }
+.cart-sub    { font-size: 11px; color: #888; }
+
+.cart-body { display: flex; flex-direction: column; gap: 16px; }
+
+.cart-avatar { display: flex; align-items: center; gap: 14px; }
+
+.cart-foto {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #f0ede8; border: 2px dashed #ccc;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #aaa; flex-shrink: 0;
+}
+
+.cart-nome     { font-size: 16px; font-weight: 700; color: #473C33; }
+.cart-info-txt { font-size: 12px; color: #888; margin-bottom: 4px; }
+
+.cart-dados { display: flex; gap: 12px; }
+
+.cart-sangue {
+  background: #473C33; border-radius: 12px;
+  padding: 12px 16px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-width: 80px;
+}
+
+.sangue-label { font-size: 9px; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
+.sangue-valor { font-size: 22px; font-weight: 700; color: #fff; }
+
+.cart-info-box { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+
+.info-box-item {
+  display: flex; align-items: center; gap: 8px;
+  background: #f5f3ef; border-radius: 8px; padding: 8px 10px;
+  ion-icon { font-size: 16px; color: #ABC270; }
+}
+
+.ib-label { display: block; font-size: 9px; color: #aaa; letter-spacing: .5px; }
+.ib-valor { display: block; font-size: 12px; font-weight: 600; color: #473C33; }
+
+.cart-qr { text-align: center; }
+
+.qr-placeholder { display: flex; justify-content: center; margin-bottom: 8px; }
+.qr-texto { font-size: 12px; color: #473C33; margin: 0 0 4px; }
+.qr-aviso { font-size: 11px; color: #aaa; margin: 0; }
+
+// ============ RESPONSIVO ============
 @media (max-width: 768px) {
   .shell { grid-template-columns: 1fr; }
   .sidebar {

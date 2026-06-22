@@ -43,16 +43,13 @@
     <!-- Conteúdo -->
     <main class="main-content">
 
-      <a class="voltar-link" (click)="voltar()">
-        ← Crianças
-      </a>
+      <a class="voltar-link" (click)="voltar()">← Crianças</a>
 
       <div class="perfil-layout">
 
-        <!-- Card lateral da criança -->
+        <!-- Card lateral -->
         <div class="perfil-card">
 
-          <!-- Círculo de progresso -->
           <div class="progresso-wrap">
             <svg width="120" height="120" viewBox="0 0 120 120">
               <circle cx="60" cy="60" r="52"
@@ -107,14 +104,12 @@
         <!-- Lista de vacinas -->
         <div class="vacinas-wrap">
 
-          <!-- Próximas vacinas -->
           <div class="vacina-secao" *ngIf="proximasVacinas.length > 0">
             <h3>
               <span class="secao-dot proxima"></span>
               Próximas vacinas
             </h3>
-            <div class="vacina-item proxima-item"
-                 *ngFor="let v of proximasVacinas">
+            <div class="vacina-item" *ngFor="let v of proximasVacinas">
               <div class="vacina-icone">
                 <ion-icon name="calendar-outline"></ion-icon>
               </div>
@@ -126,14 +121,12 @@
             </div>
           </div>
 
-          <!-- Já aplicadas -->
           <div class="vacina-secao">
             <h3>
               <span class="secao-dot aplicada"></span>
               Já aplicadas ({{ aplicadas.length }})
             </h3>
-            <div class="vacina-item aplicada-item"
-                 *ngFor="let v of aplicadas">
+            <div class="vacina-item" *ngFor="let v of aplicadas">
               <div class="vacina-icone verde">
                 <ion-icon name="checkmark-outline"></ion-icon>
               </div>
@@ -146,81 +139,82 @@
 
         </div>
       </div>
-
     </main>
-  </div>
 
-  <!-- Modal Carteirinha -->
-<div class="modal-overlay" *ngIf="mostrarCarteirinha" (click)="fecharCarteirinha()">
-  <div class="modal-card" (click)="$event.stopPropagation()">
+    <!-- Modal Carteirinha — DENTRO do shell -->
+    <div class="modal-overlay" *ngIf="mostrarCarteirinha" (click)="fecharCarteirinha()">
+      <div class="modal-card" (click)="$event.stopPropagation()">
 
-    <button class="modal-fechar" (click)="fecharCarteirinha()">✕</button>
+        <button class="modal-fechar" (click)="fecharCarteirinha()">✕</button>
 
-    <div class="carteirinha-header">
-      <div class="cart-logo">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#ABC270"/>
-        </svg>
-      </div>
-      <div>
-        <div class="cart-titulo">Imuni</div>
-        <div class="cart-sub">Carteira de Vacinação Digital</div>
+        <div class="carteirinha-header">
+          <div class="cart-logo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" fill="#ABC270"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cart-titulo">Imuni</div>
+            <div class="cart-sub">Carteira de Vacinação Digital</div>
+          </div>
+        </div>
+
+        <div class="cart-body">
+
+          <div class="cart-avatar">
+            <div class="cart-foto">Foto</div>
+            <div>
+              <div class="cart-nome">{{ crianca.nome }}</div>
+              <div class="cart-info-txt">{{ crianca.idade }} · nasc. {{ crianca.nascimento }}</div>
+              <span class="status-badge em-dia">✓ Em dia</span>
+            </div>
+          </div>
+
+          <div class="cart-dados">
+            <div class="cart-sangue">
+              <span class="sangue-label">TIPO SANGUÍNEO</span>
+              <span class="sangue-valor">A+</span>
+            </div>
+            <div class="cart-info-box">
+              <div class="info-box-item">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                <div>
+                  <span class="ib-label">ALERGIAS</span>
+                  <span class="ib-valor">Nenhuma conhecida</span>
+                </div>
+              </div>
+              <div class="info-box-item">
+                <ion-icon name="medkit-outline"></ion-icon>
+                <div>
+                  <span class="ib-label">MEDICAÇÃO CONTÍNUA</span>
+                  <span class="ib-valor">Nenhuma</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-qr">
+            <div class="qr-placeholder">
+              <svg width="80" height="80" viewBox="0 0 80 80">
+                <rect x="5" y="5" width="30" height="30" fill="none" stroke="#473C33" stroke-width="3"/>
+                <rect x="12" y="12" width="16" height="16" fill="#473C33"/>
+                <rect x="45" y="5" width="30" height="30" fill="none" stroke="#473C33" stroke-width="3"/>
+                <rect x="52" y="12" width="16" height="16" fill="#473C33"/>
+                <rect x="5" y="45" width="30" height="30" fill="none" stroke="#473C33" stroke-width="3"/>
+                <rect x="12" y="52" width="16" height="16" fill="#473C33"/>
+                <rect x="45" y="45" width="8" height="8" fill="#473C33"/>
+                <rect x="57" y="45" width="8" height="8" fill="#473C33"/>
+                <rect x="45" y="57" width="8" height="8" fill="#473C33"/>
+                <rect x="57" y="57" width="8" height="8" fill="#473C33"/>
+              </svg>
+            </div>
+            <p class="qr-texto">Validação rápida — apresente este QR Code na UBS.</p>
+            <p class="qr-aviso">Doc. digital · não substitui a via oficial</p>
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <div class="cart-body">
-      <div class="cart-avatar">
-        <div class="cart-foto">Foto</div>
-        <div>
-          <div class="cart-nome">{{ crianca.nome }}</div>
-          <div class="cart-info">{{ crianca.idade }} · nasc. {{ crianca.nascimento }}</div>
-          <span class="status-badge em-dia">✓ Em dia</span>
-        </div>
-      </div>
-
-      <div class="cart-dados">
-        <div class="cart-sangue">
-          <span class="sangue-label">TIPO SANGUÍNEO</span>
-          <span class="sangue-valor">A+</span>
-        </div>
-        <div class="cart-info-box">
-          <div class="info-box-item">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            <div>
-              <span class="ib-label">ALERGIAS</span>
-              <span class="ib-valor">Nenhuma conhecida</span>
-            </div>
-          </div>
-          <div class="info-box-item">
-            <ion-icon name="medkit-outline"></ion-icon>
-            <div>
-              <span class="ib-label">MEDICAÇÃO CONTÍNUA</span>
-              <span class="ib-valor">Nenhuma</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart-qr">
-        <div class="qr-placeholder">
-          <svg width="80" height="80" viewBox="0 0 80 80">
-            <rect x="5" y="5" width="30" height="30" fill="none" stroke="#473C33" stroke-width="3"/>
-            <rect x="12" y="12" width="16" height="16" fill="#473C33"/>
-            <rect x="45" y="5" width="30" height="30" fill="none" stroke="#473C33" stroke-width="3"/>
-            <rect x="52" y="12" width="16" height="16" fill="#473C33"/>
-            <rect x="5" y="45" width="30" height="30" fill="none" stroke="#473C33" stroke-width="3"/>
-            <rect x="12" y="52" width="16" height="16" fill="#473C33"/>
-            <rect x="45" y="45" width="8" height="8" fill="#473C33"/>
-            <rect x="57" y="45" width="8" height="8" fill="#473C33"/>
-            <rect x="45" y="57" width="8" height="8" fill="#473C33"/>
-            <rect x="57" y="57" width="8" height="8" fill="#473C33"/>
-          </svg>
-        </div>
-        <p class="qr-texto">Validação rápida — apresente este QR Code na UBS.</p>
-        <p class="qr-aviso">Doc. digital · não substitui a via oficial</p>
-      </div>
-    </div>
-
   </div>
-</div>
 </ion-content>
